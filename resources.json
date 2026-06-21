@@ -25,5 +25,13 @@
   "description": "A practice resource for learning SQL basics.",
   "url": "https://www.w3schools.com/sql/",
   "tags": ["SQL", "Practice"]
-}
+},
+  {
+  "id": "data-soc",
+  "title": "fun place",
+  "type": "link",
+  "category": "Learning",
+  "description": "place for good stuff.",
+  "url": "https://unswdata.com/",
+  } 
 ]
