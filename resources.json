@@ -1,0 +1,29 @@
+[
+  {
+    "id": "resume-guide",
+    "title": "Data Science Resume Guide",
+    "type": "file",
+    "category": "Careers",
+    "description": "A beginner-friendly resume guide for data science students.",
+    "url": "https://github.com/fishdynasty/datasoc_resources_page_git_test/blob/main/files/careers/resume-guide.pdf",
+    "tags": ["Careers", "Resume"]
+  },
+  {
+    "id": "kaggle-learn",
+    "title": "Kaggle Learn",
+    "type": "link",
+    "category": "Learning",
+    "description": "Free short courses for Python, pandas, SQL, and machine learning.",
+    "url": "https://www.kaggle.com/learn",
+    "tags": ["Python", "ML", "SQL"]
+  },
+  {
+  "id": "sql-practice",
+  "title": "SQL Practice Resource",
+  "type": "link",
+  "category": "Learning",
+  "description": "A practice resource for learning SQL basics.",
+  "url": "https://www.w3schools.com/sql/",
+  "tags": ["SQL", "Practice"]
+  }
+]
