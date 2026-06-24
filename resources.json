@@ -25,21 +25,5 @@
   "description": "A practice resource for learning SQL basics.",
   "url": "https://www.w3schools.com/sql/",
   "tags": ["SQL", "Practice"]
-  },
-  {
-  "id": "pdf",
-  "title": "pdf",
-  "type": "file",
-  "category": "Learning",
-  "url": "https://raw.githubusercontent.com/fishdynasty/datasoc_resources_page_git_test/main/files/test/pdf%20test.pdf",
-  "tags": ["SQL", "Practice"]
-  },
-  {
-  "id": "vibe",
-  "title": "vibe",
-  "type": "file",
-  "category": "Learning",
-  "url": "files/test/vibe-coding-won’t-save-you.md",
-  "tags": ["SQL", "Practice"]
   }
 ]
