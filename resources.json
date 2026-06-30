@@ -16,5 +16,14 @@
     "description": "Free short courses for Python, pandas, SQL, and machine learning.",
     "url": "https://www.kaggle.com/learn",
     "tags": ["Python", "ML", "SQL"]
+  },
+  {
+  "id": "badminton-rules",
+  "title": "Simplified Rules of Badminton",
+  "type": "file",
+  "category": "Testing",
+  "description": "A test PDF file hosted through GitHub Pages.",
+  "url": "https://fishdynasty.github.io/datasoc_resources_page_git_test/files/test/Simplified%20Rules%20of%20Badminton%20-%20Dec%202015.pdf",
+  "tags": ["PDF", "Test"]
   }
 ]
