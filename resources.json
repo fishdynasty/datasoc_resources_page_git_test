@@ -19,7 +19,7 @@
   },
   {
   "id": "badminton-rules",
-  "title": "Simplified Rules of Badminton",
+  "title": "Needed for internals",
   "type": "file",
   "category": "Testing",
   "description": "A test PDF file hosted through GitHub Pages.",
