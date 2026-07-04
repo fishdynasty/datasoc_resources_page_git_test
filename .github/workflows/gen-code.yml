@@ -1,0 +1,40 @@
+name: Generate Resource Metadata
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "files/**"
+
+permissions:
+  contents: write
+
+jobs:
+  generate-resource-metadata:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate missing resource entries
+        run: node scripts/generate-resource-metadata.mjs
+
+      - name: Commit updated resources.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git add resources.json
+            git commit -m "Auto-generate resource metadata"
+            git push
+          fi
