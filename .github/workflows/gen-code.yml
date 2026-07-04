@@ -24,8 +24,7 @@ jobs:
           node-version: 24
 
       - name: Generate missing resource entries
-        run: node scripts/generate-resource-metadata.mjs
-
+        run: node scripts/generate.mjs
       - name: Commit updated resources.json
         run: |
           git config user.name "github-actions[bot]"
