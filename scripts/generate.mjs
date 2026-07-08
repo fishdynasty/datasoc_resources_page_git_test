@@ -1,23 +1,15 @@
 import fs from "fs";
 import path from "path";
 
-// The JSON file we want to update
 const RESOURCES_FILE = "resources.json";
 
-// The folder where uploaded resource files are stored
-const FILES_FOLDER = "files";
+const FILES_FOLDER = "files/test";
 
-// GitHub gives this automatically when the Action runs.
-// Example: fishdynasty/datasoc_resources_page_git_test
 const repoName =
   process.env.GITHUB_REPOSITORY || "fishdynasty/datasoc_resources_page_git_test";
 
 const [owner, repo] = repoName.split("/");
-
-// Base GitHub Pages URL
 const pagesBaseUrl = `https://${owner}.github.io/${repo}`;
-
-// File types we want to include as resources
 const allowedFileTypes = [
   ".pdf",
   ".docx",
@@ -31,7 +23,6 @@ const allowedFileTypes = [
   ".jpeg",
 ];
 
-// Get all files inside a folder, including files inside subfolders
 function getFiles(folder) {
   let allFiles = [];
 
@@ -102,8 +93,37 @@ function saveResources(resources) {
   );
 }
 
-const resources = readResources();
+const originalResources = readResources();
 const files = getFiles(FILES_FOLDER);
+
+// Make a list of URLs for files that currently exist
+const currentFileUrls = new Set();
+
+for (const filePath of files) {
+  currentFileUrls.add(makePagesUrl(filePath));
+}
+
+// Remove JSON entries if the matching file was deleted
+let resources = originalResources.filter((resource) => {
+  // Keep non-file resources, like normal external links
+  if (resource.type !== "file") {
+    return true;
+  }
+
+  // Only remove files hosted from this repo's GitHub Pages files folder
+  const isHostedFile =
+    typeof resource.url === "string" &&
+    resource.url.startsWith(`${pagesBaseUrl}/${FILES_FOLDER}/`);
+
+  if (!isHostedFile) {
+    return true;
+  }
+
+  // Keep the resource only if the actual file still exists
+  return currentFileUrls.has(resource.url);
+});
+
+const deletedResourcesCount = originalResources.length - resources.length;
 
 let newResourcesAdded = 0;
 
@@ -126,7 +146,7 @@ for (const filePath of files) {
   if (alreadyInJson) {
     continue;
   }
-  
+
   const newResource = {
     id: id,
     title: "TODO: WRITE TITLE!",
@@ -134,7 +154,8 @@ for (const filePath of files) {
     category: "TODO: Insert Category Here",
     description: "TODO: Add short description.",
     url: url,
-    tags: ["ADD", "TAG"],
+    tags: [],
+    needsReview: true,
   };
 
   resources.push(newResource);
@@ -144,3 +165,4 @@ for (const filePath of files) {
 saveResources(resources);
 
 console.log(`Added ${newResourcesAdded} new resource(s).`);
+console.log(`Removed ${deletedResourcesCount} deleted resource(s).`);
