@@ -68,17 +68,6 @@ function makeId(text) {
     .replace(/^-+|-+$/g, "");
 }
 
-// Turns file names into readable titles
-// Example: "resume-guide.pdf" -> "Resume Guide"
-function makeTitle(fileName) {
-  return fileName
-    .replace(/\.[^/.]+$/, "")
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
-}
-
 // Uses the first folder after files/ as the category
 // Example: files/careers/resume-guide.pdf -> Careers
 function getCategory(filePath) {
@@ -149,15 +138,15 @@ for (const filePath of files) {
   if (alreadyInJson) {
     continue;
   }
-
+  
   const newResource = {
     id: id,
-    title: makeTitle(fileName),
+    title: "TODO: WRITE TITLE.",
     type: "file",
     category: getCategory(filePath),
-    description: "TODO: Add a short description.",
+    description: "TODO: Add short description.",
     url: url,
-    tags: [],
+    tags: ["ADD", "TAG"],
   };
 
   resources.push(newResource);
