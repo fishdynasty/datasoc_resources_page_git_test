@@ -68,18 +68,6 @@ function makeId(text) {
     .replace(/^-+|-+$/g, "");
 }
 
-// Uses the first folder after files/ as the category
-// Example: files/careers/resume-guide.pdf -> Careers
-function getCategory(filePath) {
-  const parts = filePath.split(path.sep);
-
-  if (parts.length > 1) {
-    return makeTitle(parts[1]);
-  }
-
-  return "General";
-}
-
 // Creates the GitHub Pages URL for the file
 function makePagesUrl(filePath) {
   const urlPath = filePath
@@ -141,9 +129,9 @@ for (const filePath of files) {
   
   const newResource = {
     id: id,
-    title: "TODO: WRITE TITLE.",
+    title: "TODO: WRITE TITLE!",
     type: "file",
-    category: getCategory(filePath),
+    category: "TODO: Insert Category Here",
     description: "TODO: Add short description.",
     url: url,
     tags: ["ADD", "TAG"],
