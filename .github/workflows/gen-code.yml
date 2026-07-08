@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "files/**"
+      - "files/test/**"
       - "scripts/generate.mjs"
       - ".github/workflows/gen-code.yml"
 
