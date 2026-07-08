@@ -6,6 +6,10 @@ on:
       - main
     paths:
       - "files/**"
+      - "scripts/generate.mjs"
+      - ".github/workflows/gen-code.yml"
+
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -17,7 +21,7 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v6
-      
+
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
@@ -25,6 +29,7 @@ jobs:
 
       - name: Generate missing resource entries
         run: node scripts/generate.mjs
+
       - name: Commit updated resources.json
         run: |
           git config user.name "github-actions[bot]"
