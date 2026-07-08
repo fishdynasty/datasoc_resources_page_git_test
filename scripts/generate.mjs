@@ -12,11 +12,7 @@ const pagesBaseUrl = `https://${owner}.github.io/${repo}`;
 
 const allowedFileTypes = [
   ".pdf",
-  ".docx",
-  ".pptx",
-  ".xlsx",
   ".csv",
-  ".zip",
   ".png",
   ".jpg",
   ".jpeg",
