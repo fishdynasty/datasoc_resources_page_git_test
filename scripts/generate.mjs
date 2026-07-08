@@ -17,7 +17,6 @@ const allowedFileTypes = [
   ".xlsx",
   ".csv",
   ".zip",
-  ".ipynb",
   ".png",
   ".jpg",
   ".jpeg",
