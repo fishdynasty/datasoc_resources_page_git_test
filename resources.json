@@ -1,1 +1,26 @@
-
+[
+  {
+    "id": "test-new-york-real-estate-2026-final",
+    "title": "TODO: WRITE TITLE!",
+    "type": "file",
+    "category": "TODO: Insert Category Here",
+    "description": "TODO: Add short description.",
+    "url": "https://fishdynasty.github.io/datasoc_resources_page_git_test/files/test/new_york_real_estate_2026_final.csv",
+    "tags": [
+      "ADD",
+      "TAG"
+    ]
+  },
+  {
+    "id": "test-normal-dist",
+    "title": "TODO: WRITE TITLE!",
+    "type": "file",
+    "category": "TODO: Insert Category Here",
+    "description": "TODO: Add short description.",
+    "url": "https://fishdynasty.github.io/datasoc_resources_page_git_test/files/test/normal%20dist.pdf",
+    "tags": [
+      "ADD",
+      "TAG"
+    ]
+  }
+]
