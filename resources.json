@@ -10,15 +10,5 @@
       "ADD",
       "TAG"
     ]
-  },
-  {
-    "id": "test-heart",
-    "title": "TODO: WRITE TITLE!",
-    "type": "file",
-    "category": "TODO: Insert Category Here",
-    "description": "TODO: Add short description.",
-    "url": "https://fishdynasty.github.io/datasoc_resources_page_git_test/files/test/heart.csv",
-    "tags": [],
-    "needsReview": true
   }
 ]
