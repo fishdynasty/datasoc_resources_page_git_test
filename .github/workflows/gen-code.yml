@@ -1,0 +1,44 @@
+name: Generate Resource Metadata
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "files/test/**"
+      - "scripts/generate.mjs"
+      - ".github/workflows/gen-code.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-resource-metadata:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Generate missing resource entries
+        run: node scripts/generate.mjs
+
+      - name: Commit updated resources.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet; then
+            echo "No changes to commit."
+          else
+            git add resources.json
+            git commit -m "Auto-generate resource metadata"
+            git push
+          fi
